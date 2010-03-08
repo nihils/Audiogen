@@ -17,17 +17,13 @@ class Triangle implements ISynth
         freq = _freq;
         harmonics = _harmonics;
     }
-    public function execute(buffer:ByteArray):Void {
-        phase = 0.0;
+    public function execute(buffer:ByteArray, pos:Float):Void {
         for (c in 0...3072){
+            var phase:Float = ((c + pos) % (44100 / freq)) / (44100 / freq);
             amp = 0.0;
             for (h in 1...harmonics){
                 amp += (Math.pow(-1, h) / (((h << 1) - 1) * ((h << 1) - 1))) * FastMath.sin(phase * (((h << 1) - 1) << 1) * Math.PI);
             }
-            phase += freq / 44100;
-
-            if (phase > 1) --phase;
-
             buffer.writeFloat((8 / (Math.PI * Math.PI)) * amp);
             buffer.writeFloat((8 / (Math.PI * Math.PI)) * amp);
         }

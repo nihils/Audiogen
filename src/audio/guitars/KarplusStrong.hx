@@ -12,12 +12,12 @@ class KarplusStrong implements ISynth
     private var periodn:Int;
     private var periodi:Int;
     private var periods:Vector<Float>;
-    private var feed:Bool;
+    public var feed(default,default):Bool;
     
     public function new(_freq:Float) {
         freq = _freq;
     }
-    public function execute(buffer:ByteArray):Void {
+    public function execute(buffer:ByteArray, pos:Float):Void {
         periodn = Std.int(44100 / freq);
         periodi = 0;
         periods = new Vector<Float>(periodn, true);

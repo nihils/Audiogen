@@ -4,5 +4,5 @@ import flash.utils.ByteArray;
 
 interface ISynth
 {
-	function execute(buffer:ByteArray):Void;
+    function execute(buffer:ByteArray, pos:Float):Void;
 }

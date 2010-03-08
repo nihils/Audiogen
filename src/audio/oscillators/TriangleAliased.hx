@@ -15,15 +15,11 @@ class TriangleAliased implements ISynth
     public function new(_freq:Float) {
         freq = _freq;
     }
-    public function execute(buffer:ByteArray):Void {
-        phase = 0.0;
+    public function execute(buffer:ByteArray, pos:Float):Void {
+        amp = 0.0;
         for (c in 0...3072){
+            var phase:Float = ((c + pos) % (44100 / freq)) / (44100 / freq);
             amp = Math.asin(FastMath.sin(phase * 2 * Math.PI));
-
-            phase += freq / 44100;
-
-            if (phase > 1) --phase;
-
             buffer.writeFloat(amp);
             buffer.writeFloat(amp);
         }

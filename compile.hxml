@@ -4,5 +4,4 @@
 -swf deploy/out.swf
 -swf-version 10
 -swf-header 800:600:40:FFFFFF
-#-swf-lib assets/lib.swf
-
+-swf-lib assets/library.swf
