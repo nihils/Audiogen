@@ -2,11 +2,13 @@ Audiogen haXe/Flash library was created by Nihil Shah (Copyright 2010) as a proo
 
 License
 =======
-Audiogen haXe/Flash library is licensed under the [Creative Commons Attribution Non-Commercial ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0)
+Audiogen haXe/Flash library is licensed under [Creative Commons Attribution Non-Commercial ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-nc-sa/3.0)
 
-Basic OOP Structure
-===================
-Every synthesis algorithm implements the audio.ISynth interface, this ensures that every algorithm implements the execute function. This also ensures that all the algorithms share one type, allowing for runtime-switching of synthesis.  
+OOP Structure
+=============
+Every synthesis algorithm implements the audio.ISynth interface, this ensures that every algorithm implements the execute function. This also ensures that all the algorithms share one type which allows for runtime switching of synthesis.  
+
+Currently, every synthesis class requires that the frequency of the resulting wave is passed to the constructer. Use the audio.Convert class and audio.Note enum to convert notes into the right frequency values. The audio.Convert class can also convert piano key number to frequency.  
 
 Basic Usage
 -----------
@@ -21,15 +23,40 @@ Basic Usage
 
             //Or a sawtooth fourier series A in the 4th octave with 7 harmonics
             //syn = new audio.oscillators.Sawtooth(440, 7);
+
+            //Or a KarplusStrong guitar playing A in the 4th octave
+            //syn = new audio.guitars.KarplusStrong(440);
         
             snd = new flash.media.Sound();
             snd.addEventListener(flash.events.SampleDataEvent.SAMPLE_DATA, onSampleData);
             snd.play();
         }
-        public function onSampleData(event:SampleDataEvent):Void {
+        public function onSampleData(event:flash.events.SampleDataEvent):Void {
             syn.execute(event.data, event.position);
         }
-        //Entry point 
+        public static function main():Void {
+            var m:Main = new Main();
+        }
+    }
+
+Runtime Initialization 
+----------------------
+    class Main
+    {
+        private var snd:flash.media.Sound;
+        private var syn:audio.ISynth;
+       
+        public function new() {
+            //Play a pure toned A in the 4th octave (440 Hz) initialized at runtime
+            syn = Type.createInstance(Type.resolveClass("audio.oscillators.Sine"), [440]);
+
+            snd = new flash.media.Sound();
+            snd.addEventListener(flash.events.SampleDataEvent.SAMPLE_DATA, onSampleData);
+            snd.play();
+        }
+        public function onSampleData(event:flash.events.SampleDataEvent):Void {
+            syn.execute(event.data, event.position);
+        }
         public static function main():Void {
             var m:Main = new Main();
         }
@@ -37,8 +64,12 @@ Basic Usage
 
 Advanced Usage
 --------------
-View src/Audiogen.hx file
+View the [src/Audiogen.hx](http://github.com/therealnihil/Audiogen/blob/master/src/Audiogen.hx) file
 
-Convert Usage
--------------
-TODO
+School Project
+==============
+This was part of my group's project on sound wave synthesis and the fourier series
+
+Commercial Use
+==============
+If you would like to use Audiogen haXe/Flash commercially without violating the license, please contact me at <nshah311@gmail.com>
