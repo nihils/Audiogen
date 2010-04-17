@@ -11,6 +11,7 @@ import flash.utils.ByteArray;
 
 import audio.ISynth;
 import audio.guitars.KarplusStrong;
+import audio.guitars.OurGuitar;
 import audio.oscillators.Sawtooth;
 import audio.oscillators.SawtoothAliased;
 import audio.oscillators.Sine;
@@ -37,6 +38,7 @@ class Audiogen
             case 5: syn = new Triangle(440, 7);
             case 6: syn = new TriangleAliased(440);
             case 7: syn = new KarplusStrong(440);
+            case 8: syn = new OurGuitar();
             default: syn = new Sine(440);
         }
         snd = new Sound();

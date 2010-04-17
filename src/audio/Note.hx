@@ -8,9 +8,7 @@ enum Note
 
     B_F(octave:Int);
     B(octave:Int);
-    B_S(octave:Int);
 
-    C_F(octave:Int);
     C(octave:Int);
     C_S(octave:Int);
 
@@ -20,9 +18,7 @@ enum Note
 
     E_F(octave:Int);
     E(octave:Int);
-    E_S(octave:Int);
 
-    F_F(octave:Int);
     F(octave:Int);
     F_S(octave:Int);
 
