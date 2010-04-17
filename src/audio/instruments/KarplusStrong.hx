@@ -1,4 +1,4 @@
-package audio.guitars;
+package audio.instruments;
 
 import flash.Vector;
 import flash.utils.ByteArray;

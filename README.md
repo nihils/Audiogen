@@ -25,7 +25,7 @@ Basic Usage
             //syn = new audio.oscillators.Sawtooth(440, 7);
 
             //Or a KarplusStrong guitar playing A in the 4th octave
-            //syn = new audio.guitars.KarplusStrong(440);
+            //syn = new audio.instruments.KarplusStrong(440);
         
             snd = new flash.media.Sound();
             snd.addEventListener(flash.events.SampleDataEvent.SAMPLE_DATA, onSampleData);
