@@ -3,6 +3,7 @@ Audiogen haXe/Flash library was created by Nihil Shah (Copyright 2010) as a proo
 License
 =======
 Audiogen haXe/Flash library is licensed under [Creative Commons Attribution Non-Commercial ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-nc-sa/3.0)
+![Creative Commons Attribution Non-Commercial ShareAlike 3.0 Unported](http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png)
 
 OOP Structure
 =============
