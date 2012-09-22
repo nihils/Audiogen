@@ -32,10 +32,10 @@ class Convert
         return freq;
     }
     public static function key(_key:Int):Float {
-        return 440 * Math.pow(Math.pow(2, (1 / 12)), key - 49);
+        return 440 * Math.pow(Math.pow(2, (1 / 12)), _key - 49);
     }
     //TODO: Research midi#->frequency conversion algorithm
     public static function midi(_num:Int):Float {
-
+	return 0.0;
     }
 }

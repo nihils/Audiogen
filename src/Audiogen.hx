@@ -9,6 +9,8 @@ import flash.media.Sound;
 import flash.media.SoundMixer;
 import flash.utils.ByteArray;
 
+import audio.Convert;
+import audio.Note;
 import audio.ISynth;
 import audio.instruments.KarplusStrong;
 import audio.oscillators.Sawtooth;
@@ -29,12 +31,13 @@ class Audiogen
 
     public function new() {
         var content:Int = Std.parseInt(Lib.as(Lib.current.loaderInfo, LoaderInfo).parameters.content);
+	var freq:Float = Std.parseFloat(Lib.as(Lib.current.loaderInfo, LoaderInfo).parameters.freq);
         switch (content){
-            case 1: syn = new Sawtooth(440, 7);
-            case 2: syn = new SawtoothAliased(440);
-            case 3: syn = new Square(440, 7);
-            case 4: syn = new SquareAliased(440);
-            case 5: syn = new Triangle(440, 7);
+            case 1: syn = new Sawtooth(freq, 7);
+            case 2: syn = new SawtoothAliased(freq);
+            case 3: syn = new Square(freq, 7);
+            case 4: syn = new SquareAliased(Convert.note(Note.A(5)));
+            case 5: syn = new Triangle(freq, 7);
             case 6: syn = new TriangleAliased(440);
             case 7: syn = new KarplusStrong(440);
             default: syn = new Sine(440);
