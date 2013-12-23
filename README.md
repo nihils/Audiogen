@@ -23,7 +23,7 @@ Basic Usage
 
             //Or a sawtooth fourier series A in the 4th octave with 7 harmonics
             //syn = new audio.oscillators.Sawtooth(440, 7);
-
+	    
             //Or a KarplusStrong guitar playing A in the 4th octave
             //syn = new audio.instruments.KarplusStrong(440);
         
@@ -64,7 +64,7 @@ Runtime Initialization
 
 Advanced Usage
 --------------
-View the [src/Audiogen.hx](http://github.com/therealnihil/Audiogen/blob/master/src/Audiogen.hx) file
+View the [src/Audiogen.hx](blob/master/src/Audiogen.hx) file
 
 School Project
 ==============

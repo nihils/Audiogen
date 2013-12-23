@@ -36,11 +36,11 @@ class Audiogen
             case 1: syn = new Sawtooth(freq, 7);
             case 2: syn = new SawtoothAliased(freq);
             case 3: syn = new Square(freq, 7);
-            case 4: syn = new SquareAliased(Convert.note(Note.A(5)));
+            case 4: syn = new SquareAliased(freq));
             case 5: syn = new Triangle(freq, 7);
-            case 6: syn = new TriangleAliased(440);
-            case 7: syn = new KarplusStrong(440);
-            default: syn = new Sine(440);
+            case 6: syn = new TriangleAliased(freq);
+            case 7: syn = new KarplusStrong(freq);
+            default: syn = new Sine(freq);
         }
         snd = new Sound();
         snd.addEventListener(SampleDataEvent.SAMPLE_DATA, onSampleData); 
