@@ -64,7 +64,7 @@ Runtime Initialization
 
 Advanced Usage
 --------------
-View the [src/Audiogen.hx](blob/master/src/Audiogen.hx) file
+View the [src/Audiogen.hx](src/Audiogen.hx) file
 
 School Project
 ==============
